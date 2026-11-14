@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sub Guard · Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main { max-width: 980px; margin: 0 auto; padding: 24px 16px 60px; }
+    nav { display: flex; gap: 14px; margin-bottom: 14px; font-size: 13px; }
+    nav a { color: var(--accent); text-decoration: none; } nav a.on { color: var(--fg); font-weight: 600; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    h1 { margin: 0; font-size: 22px; } h2 { font-size: 16px; margin: 28px 0 8px; }
+    .actions, .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .filters { margin: 14px 0 8px; }
+    select, input[type=search] { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--fg); }
+    .wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+    th { font-size: 12px; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--bg); }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    td.date { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+<main>
+  <nav><a href="results.html">Report</a><a href="details.html" class="on">Details</a></nav>
+  <header>
+    <h1>Transactions</h1>
+    <div class="actions">
+      <button id="rebuild" class="primary" title="Re-read all saved pages and CSV imports with the current code">Rebuild from saved pages</button>
+      <button id="importBtn">Import CSV</button>
+      <button id="exportTxns">Export CSV</button>
+      <button id="exportDebug">Export debug info</button>
+      <input id="csv" type="file" accept=".csv,text/csv" multiple hidden>
+    </div>
+  </header>
+  <p id="msg" class="muted small"></p>
+
+  <div class="filters">
+    <select id="fAccount"><option value="">All accounts</option></select>
+    <select id="fMonth"><option value="">All months</option></select>
+    <input id="fText" type="search" placeholder="Search description">
+    <span id="count" class="muted small"></span>
+  </div>
+  <div class="wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Description</th><th class="num">Amount</th><th>Account</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <h2>Saved sources</h2>
+  <p class="small muted">Pages saved during scans and CSV files you imported. "Rebuild" re-reads all of them, so the
+    reading code can change without logging in to Bank of America again. Stored only in this browser.</p>
+  <div class="wrap">
+    <table>
+      <thead><tr><th>Saved</th><th>Type</th><th>Account / file</th><th class="num">Size</th><th class="num">Rows</th><th></th></tr></thead>
+      <tbody id="sources"></tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:28px"><button id="clear">Delete all data</button></p>
+</main>
+<script src="extract.js"></script>
+<script src="details.js" type="module"></script>
+</body>
+</html>

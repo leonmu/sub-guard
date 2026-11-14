@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sub Guard · Report</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
+    nav { display: flex; gap: 14px; margin-bottom: 14px; font-size: 13px; }
+    nav a { color: var(--accent); text-decoration: none; } nav a.on { color: var(--fg); font-weight: 600; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+    h1 { margin: 0; font-size: 22px; }
+    .wrap { overflow-x: auto; margin-top: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); }
+    th { font-size: 12px; color: var(--muted); font-weight: 600; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    td { white-space: nowrap; } td:first-child { white-space: normal; }
+    td.act { white-space: nowrap; text-align: right; }
+    td.act button { padding: 3px 8px; font-size: 12.5px; margin-left: 4px; }
+    input.note { font: inherit; font-size: 12.5px; width: 100%; min-width: 120px; box-sizing: border-box; padding: 3px 6px;
+      border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--fg); }
+    input.note:hover, input.note:focus { border-color: var(--line); background: var(--chip); outline: none; }
+  </style>
+</head>
+<body>
+<main>
+  <nav><a href="results.html" class="on">Report</a><a href="details.html">Details</a></nav>
+  <header>
+    <h1>Subscriptions</h1>
+    <button id="rescan" class="primary">Scan Bank of America</button>
+  </header>
+  <p style="margin:10px 0 0"><select id="month" style="font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg)"></select>
+    <span id="total" class="small"></span></p>
+  <p id="info" class="muted small"></p>
+  <div class="wrap">
+    <table>
+      <thead><tr><th>Merchant</th><th>Every</th><th class="num">Amount</th><th>Last date</th><th>Next</th><th>Note</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p id="empty" class="muted" hidden>No subscriptions found. Check the <a href="details.html">Details</a> page to see what was read.</p>
+
+  <h2 style="font-size:16px;margin:28px 0 2px">Suspicious</h2>
+  <p class="muted small" style="margin:0">Same merchant, similar amount, more than once, but not a known subscription or a regular schedule. Worth a look.</p>
+  <div class="wrap">
+    <table>
+      <thead><tr><th>Merchant</th><th>Seen</th><th class="num">Amount</th><th>Last date</th><th>Pattern</th><th>Note</th><th></th></tr></thead>
+      <tbody id="susRows"></tbody>
+    </table>
+  </div>
+  <p id="susEmpty" class="muted small" hidden>Nothing suspicious in this period.</p>
+
+  <details id="removedBox" style="margin-top:28px">
+    <summary class="small">Removed (<span id="removedCount">0</span>) — marked as not a subscription</summary>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>Merchant</th><th class="num">Amount</th><th>Last date</th><th>Note</th><th></th></tr></thead>
+        <tbody id="removedRows"></tbody>
+      </table>
+    </div>
+  </details>
+</main>
+<script src="results.js" type="module"></script>
+</body>
+</html>

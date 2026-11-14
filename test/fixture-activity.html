@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"><title>Unlimited Cash Rewards Visa Signature - 1234 | Bank of America</title>
+  <style>.ada-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
+</head>
+<body>
+<!-- Mock of a card activity page, used to check content.js in a real browser. Not BofA's real markup.
+     Reproduces what the first real scan hit: a screen-reader "Expand transaction" button in every row,
+     a balance row, purchases shown as positive amounts, and a "Previous transactions" link that loads
+     the older statement period as a new page. -->
+<h1>Unlimited Cash Rewards Visa Signature - 1234</h1>
+<table id="txns">
+  <thead><tr><th></th><th>Date</th><th>Description</th><th>Amount</th></tr></thead>
+  <tbody></tbody>
+</table>
+<a id="prev">Previous transactions</a>
+<script>
+  const periods = [
+    [['11/03/2026', 'CURSOR AI POWERED IDE CURSOR.COM NY', '$200.00'], ['11/01/2026', 'OPENAI *CHATGPT SUBSCR', '$20.00'],
+     ['11/05/2026', 'TRADER JOE S #123 SAN JOSE CA', '$54.55'], ['11/01/2026', 'PAYMENT - THANK YOU', '-$1,500.00']],
+    [['10/03/2026', 'CURSOR AI POWERED IDE CURSOR.COM NY', '$200.00'], ['10/01/2026', 'OPENAI *CHATGPT SUBSCR', '$20.00'],
+     ['10/12/2026', 'SHELL OIL 5744 SAN JOSE CA', '$41.97']],
+    [['09/03/2026', 'CURSOR AI POWERED IDE CURSOR.COM NY', '$200.00'], ['09/09/2026', 'COSTCO WHSE #0423', '$113.38']],
+  ];
+  // Like the real site: "Previous transactions" is a full page load (?p=1, ?p=2, ...), not an in-page update.
+  let period = +(new URLSearchParams(location.search).get('p') || 0);
+  function showPeriod(i) {
+    const tb = document.querySelector('#txns tbody');
+    tb.innerHTML = '<tr><td></td><td>' + periods[i][0][0] + '</td><td>Beginning balance as of ' + periods[i][0][0] + '</td><td>$1,500.00</td></tr>';
+    for (const [d, desc, amt] of periods[i]) {
+      tb.insertAdjacentHTML('beforeend',
+        `<tr><td><button aria-expanded="false"><span class="ada-hidden">Expand transaction for Transaction date: ${d}</span></button></td>` +
+        `<td>${d}</td><td>${desc}</td><td>${amt}</td></tr>`);
+    }
+    const prev = document.getElementById('prev');
+    if (i === periods.length - 1) prev.remove();
+    else prev.href = '?p=' + (i + 1);
+  }
+  showPeriod(period);
+
+  window.__messages = [];
+  let flow = { active: true, startedAt: Date.now(), queue: [], current: { label: 'Visa - 1234' }, scanned: [] };
+  window.chrome = { runtime: { sendMessage: async (m) => {
+    window.__messages.push(m);
+    if (m.type === 'get-flow') return flow;
+    if (m.type === 'update-flow') { flow = { ...flow, ...m.patch }; return flow; }
+    if (m.type === 'add-rows') return { added: m.rows.length };
+    return { ok: true };
+  } }, storage: { local: { get: async () => ({}), set: async () => {} } } };
+</script>
+<script src="../content.js"></script>
+</body>
+</html>

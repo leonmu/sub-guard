@@ -1,0 +1,10 @@
+{
+  "name": "sub-guard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "package": "sh scripts/package.sh",
+    "test:e2e": "node test/e2e.mjs"
+  }
+}

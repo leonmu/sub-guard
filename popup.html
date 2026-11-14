@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { width: 300px; padding: 14px; }
+    .primary { width: 100%; padding: 10px; font-size: 15px; }
+    .row { display: flex; gap: 8px; margin-top: 8px; }
+    .row button { flex: 1; }
+    #summary { margin: 10px 0 0; }
+    #upcoming div { padding: 4px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:16px;margin:0 0 10px">Sub Guard</h1>
+  <button id="analyze" class="primary">Analyze Bank of America</button>
+  <p class="muted small" style="margin:6px 0 0">Opens BofA in a new tab. You log in; I read your transactions and find subscriptions. Nothing leaves this browser.</p>
+  <div class="row"><button id="results">Report</button><button id="details">Details</button></div>
+  <p id="summary" class="small"></p>
+  <div id="upcoming" class="small"></div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
