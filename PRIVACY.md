@@ -32,6 +32,9 @@ Everything is kept in Chrome's local extension storage (`chrome.storage.local`) 
 Nothing. The extension's pages are blocked from making network requests (`connect-src 'none'`), and the
 extension can only access `bankofamerica.com`. Reminders are local Chrome notifications.
 
+An automated test in the source code ([test/privacy.test.js](test/privacy.test.js)) fails if any change would add a way
+to send data out, so this stays true in future versions.
+
 ## Permissions
 
 - **bankofamerica.com**: to read your transaction pages during a scan you start.

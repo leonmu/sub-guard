@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Sub Guard",
-  "version": "0.3.0",
-  "description": "Finds subscriptions in your Bank of America transactions and reminds you before they renew. Your data never leaves your browser.",
+  "version": "0.3.2",
+  "description": "Your bank data never leaves your browser. Finds subscriptions in your Bank of America transactions and reminds you before renewals.",
   "permissions": [
     "storage",
     "unlimitedStorage",

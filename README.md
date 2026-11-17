@@ -5,7 +5,7 @@
 A Chrome extension that finds the subscriptions in your Bank of America transactions and reminds you before
 they renew, so a forgotten trial or an unused plan doesn't keep charging you for months.
 
-**Your data never leaves your browser.** No server, no account, no analytics. See [PRIVACY.md](PRIVACY.md).
+**Privacy promise:** Sub Guard has no server. Your transactions, notes and settings are stored only in your browser and are never sent anywhere: not to us, not to Google, not to anyone. The only website it talks to is Bank of America itself, while you scan. The code is open source, and [an automated test](test/privacy.test.js) fails if any change would send data out. See [PRIVACY.md](PRIVACY.md).
 
 ![Report](store/screenshot-report.png)
 
@@ -55,7 +55,7 @@ Extension pages run with `connect-src 'none'`, so they cannot send data anywhere
 ## Develop
 
 ```sh
-npm test            # analysis unit tests (Node 20+)
+npm test            # unit tests, including the privacy guard (Node 20+)
 npm run test:e2e    # loads the extension in Playwright against a local mock page; bankofamerica.com is
                     # mapped to localhost so the real site is never contacted. Needs PLAYWRIGHT=<path to playwright>
 npm run package     # dist/sub-guard-<version>.zip for the Chrome Web Store

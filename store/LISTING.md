@@ -3,13 +3,13 @@
 Everything needed for the Chrome Web Store developer dashboard, field by field.
 
 ## Package
-`npm run package` → `dist/sub-guard-<version>.zip`. Upload that file.
+Raise `version` in manifest.json for every upload (the store rejects the same or a lower one). `npm run package` → `dist/sub-guard-<version>.zip`. Upload that file.
 
 ## Store listing
 
 **Name:** Sub Guard
 
-**Summary (≤132 chars):** Finds subscriptions in your Bank of America transactions and reminds you before they renew. Your data never leaves your browser.
+**Summary (≤132 chars, from manifest.json `description`):** Your bank data never leaves your browser. Finds subscriptions in your Bank of America transactions and reminds you before renewals.
 
 **Category:** Productivity → Tools (or Lifestyle → Shopping if Tools is unavailable)
 
@@ -17,6 +17,10 @@ Everything needed for the Chrome Web Store developer dashboard, field by field.
 
 **Description:**
 
+> Your bank data never leaves your browser. Sub Guard has no server: your transactions, notes and settings are stored
+> only on your computer and are never sent to us, to Google, or to anyone. The only website it talks to is Bank of
+> America itself, while you scan. The code is open source, and an automated test blocks any change that would send data out.
+>
 > Forgot to cancel a subscription again? Sub Guard finds every recurring charge on your Bank of America
 > cards and accounts, and reminds you before each one renews.
 >
