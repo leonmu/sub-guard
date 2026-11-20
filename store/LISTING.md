@@ -9,7 +9,7 @@ Raise `version` in manifest.json for every upload (the store rejects the same or
 
 **Name:** Sub Guard
 
-**Summary (≤132 chars, from manifest.json `description`):** Your bank data never leaves your browser. Finds subscriptions in your Bank of America transactions and reminds you before renewals.
+**Summary (≤132 chars, from manifest.json `description`):** Data stays in your browser. Finds Bank of America subscriptions, reminds before renewals. Open source: github.com/leonmu/sub-guard
 
 **Category:** Productivity → Tools (or Lifestyle → Shopping if Tools is unavailable)
 
@@ -19,7 +19,10 @@ Raise `version` in manifest.json for every upload (the store rejects the same or
 
 > Your bank data never leaves your browser. Sub Guard has no server: your transactions, notes and settings are stored
 > only on your computer and are never sent to us, to Google, or to anyone. The only website it talks to is Bank of
-> America itself, while you scan. The code is open source, and an automated test blocks any change that would send data out.
+> America itself, while you scan.
+>
+> Don't take our word for it: Sub Guard is open source, so you can read every line yourself at
+> https://github.com/leonmu/sub-guard . An automated test there blocks any change that would send data out.
 >
 > Forgot to cancel a subscription again? Sub Guard finds every recurring charge on your Bank of America
 > cards and accounts, and reminds you before each one renews.
