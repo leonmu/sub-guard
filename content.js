@@ -24,7 +24,7 @@
           button.s{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
           label{display:block;margin:3px 0}
         </style>
-        <div class="b"><div class="t">Sub Guard</div><div class="m"></div><div class="a"></div></div>`;
+        <div class="b"><div class="t">Bank Charge Subscription Finder</div><div class="m"></div><div class="a"></div></div>`;
       bannerText = root.querySelector('.m');
       bannerActions = root.querySelector('.a');
       document.documentElement.appendChild(host);

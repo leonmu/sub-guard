@@ -187,7 +187,7 @@ test('rows with screen-reader button text or balance lines are dropped, includin
   assert.deepEqual(all.map((t) => t.desc), ['NETFLIX.COM']);
 });
 
-test("re-importing Sub Guard's own CSV export keeps each row's account", () => {
+test("re-importing the extension's own CSV export keeps each row's account", () => {
   const csv = 'date,description,amount,account\n"2026-11-03","NETFLIX.COM","15.49","Visa - 0000"\n';
   const [r] = parseBankCsv(csv, 'file-name');
   assert.equal(r.account, 'Visa - 0000');

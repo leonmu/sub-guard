@@ -146,7 +146,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     chrome.notifications.create('rescan', {
       type: 'basic',
       iconUrl: 'icons/icon128.png',
-      title: 'Sub Guard: monthly subscription check',
+      title: 'Monthly subscription check',
       message: lastScanAt
         ? `No Bank of America scan yet this month (last one ${new Date(lastScanAt).toLocaleDateString()}). Click to scan now.`
         : 'You haven\'t scanned Bank of America yet. Click to scan now.',

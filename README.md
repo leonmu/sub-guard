@@ -1,11 +1,14 @@
 <p align="center"><img src="icons/icon128.png" width="96" alt=""></p>
 
-# Sub Guard
+# Bank Charge Subscription Finder
 
 A Chrome extension that finds the subscriptions in your Bank of America transactions and reminds you before
 they renew, so a forgotten trial or an unused plan doesn't keep charging you for months.
 
-**Privacy promise:** Sub Guard has no server. Your transactions, notes and settings are stored only in your browser and are never sent anywhere: not to us, not to Google, not to anyone. The only website it talks to is Bank of America itself, while you scan. The code is open source, and [an automated test](test/privacy.test.js) fails if any change would send data out. See [PRIVACY.md](PRIVACY.md).
+Most subscription trackers guess from your browsing history or ask you to link an account on their website. This
+one reads the charges your bank actually made, so it also finds the subscriptions you forgot about.
+
+**Privacy promise:** the extension has no server. Your transactions, notes and settings are stored only in your browser and are never sent anywhere: not to us, not to Google, not to anyone. The only website it talks to is Bank of America itself, while you scan. The code is open source, and [an automated test](test/privacy.test.js) fails if any change would send data out. See [PRIVACY.md](PRIVACY.md).
 
 ![Report](store/screenshot-report.png)
 
@@ -26,7 +29,7 @@ From source, until it's on the Chrome Web Store:
 
 1. Download or clone this repo.
 2. Open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, pick the folder.
-3. Pin the Sub Guard icon and click **Analyze Bank of America**.
+3. Pin the extension icon and click **Analyze Bank of America**.
 
 If a scan gets stuck, use **Scan this page** in its banner. You can also download a CSV from Bank of America
 (Account activity → Download) and use **Import CSV** on the Details page.
@@ -58,7 +61,7 @@ Extension pages run with `connect-src 'none'`, so they cannot send data anywhere
 npm test            # unit tests, including the privacy guard (Node 20+)
 npm run test:e2e    # loads the extension in Playwright against a local mock page; bankofamerica.com is
                     # mapped to localhost so the real site is never contacted. Needs PLAYWRIGHT=<path to playwright>
-npm run package     # dist/sub-guard-<version>.zip for the Chrome Web Store
+npm run package     # dist/bank-charge-subscription-finder-<version>.zip for the Chrome Web Store
 ```
 
 - [extract.js](extract.js) reads transactions from a page. It's shared by the live scan ([content.js](content.js)) and

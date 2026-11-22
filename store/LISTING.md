@@ -3,13 +3,13 @@
 Everything needed for the Chrome Web Store developer dashboard, field by field.
 
 ## Package
-Raise `version` in manifest.json for every upload (the store rejects the same or a lower one). `npm run package` → `dist/sub-guard-<version>.zip`. Upload that file.
+Raise `version` in manifest.json for every upload (the store rejects the same or a lower one). `npm run package` → `dist/bank-charge-subscription-finder-<version>.zip`. Upload that file.
 
 ## Store listing
 
-**Name:** Sub Guard
+**Name (from manifest.json `name`):** Bank Charge Subscription Finder
 
-**Summary (≤132 chars, from manifest.json `description`):** Data stays in your browser. Finds Bank of America subscriptions, reminds before renewals. Open source: github.com/leonmu/sub-guard
+**Summary (≤132 chars, from manifest.json `description`):** Finds subscriptions in your Bank of America charges. Data stays in your browser. Open source: github.com/leonmu/sub-guard
 
 **Category:** Productivity → Tools (or Lifestyle → Shopping if Tools is unavailable)
 
@@ -17,19 +17,20 @@ Raise `version` in manifest.json for every upload (the store rejects the same or
 
 **Description:**
 
-> Your bank data never leaves your browser. Sub Guard has no server: your transactions, notes and settings are stored
-> only on your computer and are never sent to us, to Google, or to anyone. The only website it talks to is Bank of
-> America itself, while you scan.
+> Forgot to cancel a subscription again? Most subscription trackers guess from your browsing history, or ask you to
+> link an account on their website. Bank Charge Subscription Finder reads the charges your bank actually made, so it
+> also finds the subscriptions you forgot about, and reminds you before each one renews.
 >
-> Don't take our word for it: Sub Guard is open source, so you can read every line yourself at
+> No account, no website to link, no password shared. You log in to Bank of America yourself; the extension reads
+> the activity page you're looking at, in your browser. Your transactions, notes and settings are stored only on
+> your computer and are never sent to us, to Google, or to anyone.
+>
+> Don't take our word for it: the code is open source, so you can read every line yourself at
 > https://github.com/leonmu/sub-guard . An automated test there blocks any change that would send data out.
 >
-> Forgot to cancel a subscription again? Sub Guard finds every recurring charge on your Bank of America
-> cards and accounts, and reminds you before each one renews.
->
 > HOW IT WORKS
-> • Click "Analyze Bank of America". A Bank of America tab opens and you log in as usual. Sub Guard never touches the login form.
-> • Sub Guard reads your account activity, up to about a year back, across the accounts you choose.
+> • Click "Analyze Bank of America". A Bank of America tab opens and you log in as usual. The extension never touches the login form.
+> • It reads your account activity, up to about a year back, across the accounts you choose.
 > • You get a report of this month's subscriptions, plus a "suspicious" list: repeat charges that might be subscriptions.
 > • Three days before a subscription renews, you get a notification. If you haven't scanned in a month, it reminds you to.
 >
@@ -43,7 +44,7 @@ Raise `version` in manifest.json for every upload (the store rejects the same or
 > • Import a CSV exported from Bank of America instead of scanning.
 > • Browse and filter every transaction it read, and export them as CSV.
 >
-> Sub Guard is open source: https://github.com/leonmu/sub-guard
+> Free, no limits. Open source: https://github.com/leonmu/sub-guard
 > Not affiliated with or endorsed by Bank of America.
 
 **Screenshots (1280×800):** `store/screenshot-report.png`, `store/screenshot-details.png` (made-up demo data)

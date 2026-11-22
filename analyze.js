@@ -137,7 +137,7 @@ export function parseBankCsv(text, account = '') {
   const ai = h.findIndex((c) => c === 'amount');
   let ci = h.findIndex((c) => /payee|description|merchant|name/.test(c));
   if (ci < 0) ci = h.findIndex((_, i) => i !== di && i !== ai);
-  const acc = h.indexOf('account'); // present in Sub Guard's own export
+  const acc = h.indexOf('account'); // present in this extension's own export
   return lines.slice(hi + 1).map((r) => ({ date: r[di], desc: r[ci], amount: r[ai], account: (acc >= 0 && r[acc]) || account }));
 }
 

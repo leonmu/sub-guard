@@ -1,24 +1,24 @@
-# Sub Guard privacy policy
+# Bank Charge Subscription Finder privacy policy
 
-_Last updated: November 14, 2026_
+_Last updated: November 22, 2026_
 
-Sub Guard is a Chrome extension that finds recurring charges (subscriptions) in your Bank of America
+Bank Charge Subscription Finder is a Chrome extension that finds recurring charges (subscriptions) in your Bank of America
 transactions and reminds you before they renew.
 
 ## Summary
 
-**Your data never leaves your browser.** Sub Guard has no server, no account, no analytics and no tracking.
+**Your data never leaves your browser.** The extension has no server, no account, no analytics and no tracking.
 It does not sell, share or transfer your data to anyone.
 
-## What Sub Guard reads
+## What the extension reads
 
-Only when you start a scan, and only in the tab that scan opens, Sub Guard reads the Bank of America
+Only when you start a scan, and only in the tab that scan opens, the extension reads the Bank of America
 account activity pages you're logged in to: transaction dates, descriptions, amounts and the account name.
 You can also import a CSV file you downloaded from your bank.
 
-Sub Guard never reads, fills in or stores your login details. You log in yourself.
+The extension never reads, fills in or stores your login details. You log in yourself.
 
-## What Sub Guard stores, and where
+## What the extension stores, and where
 
 Everything is kept in Chrome's local extension storage (`chrome.storage.local`) on your computer:
 
@@ -27,7 +27,7 @@ Everything is kept in Chrome's local extension storage (`chrome.storage.local`) 
 - the subscriptions it found, and your own notes and choices (removed, marked as subscription)
 - settings such as which accounts to scan
 
-## What Sub Guard sends
+## What the extension sends
 
 Nothing. The extension's pages are blocked from making network requests (`connect-src 'none'`), and the
 extension can only access `bankofamerica.com`. Reminders are local Chrome notifications.
@@ -48,7 +48,7 @@ it stored.
 
 ## Not affiliated with Bank of America
 
-Sub Guard is an independent project. It is not made, endorsed or supported by Bank of America.
+Bank Charge Subscription Finder is an independent project. It is not made, endorsed or supported by Bank of America.
 
 ## Contact
 

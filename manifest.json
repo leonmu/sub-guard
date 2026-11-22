@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Sub Guard",
-  "version": "0.3.3",
-  "description": "Data stays in your browser. Finds Bank of America subscriptions, reminds before renewals. Open source: github.com/leonmu/sub-guard",
+  "name": "Bank Charge Subscription Finder",
+  "version": "0.4.0",
+  "description": "Finds subscriptions in your Bank of America charges. Data stays in your browser. Open source: github.com/leonmu/sub-guard",
   "permissions": [
     "storage",
     "unlimitedStorage",

@@ -1,5 +1,5 @@
 {
-  "name": "sub-guard",
+  "name": "bank-charge-subscription-finder",
   "private": true,
   "type": "module",
   "scripts": {

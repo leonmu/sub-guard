@@ -120,7 +120,7 @@ const csvCell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
 $('exportTxns').onclick = () => {
   const lines = ['date,description,amount,account']
     .concat(txns.map((t) => [t.date, t.desc, t.amount.toFixed(2), t.account].map(csvCell).join(',')));
-  download(`sub-guard-transactions-${stamp()}.csv`, lines.join('\n'), 'text/csv');
+  download(`subscription-finder-transactions-${stamp()}.csv`, lines.join('\n'), 'text/csv');
   say(`Exported ${txns.length} transactions.`);
 };
 
@@ -139,7 +139,7 @@ $('exportDebug').onclick = async () => {
       return { at: new Date(s.at).toISOString(), path: s.path, rowsFound: E.extractRows(doc).length, skeleton: E.skeleton(doc) };
     }),
   };
-  download(`sub-guard-debug-${stamp()}.json`, JSON.stringify(info, null, 2), 'application/json');
+  download(`subscription-finder-debug-${stamp()}.json`, JSON.stringify(info, null, 2), 'application/json');
   say(`Exported debug info: ${debugLog.length} scan steps, ${snapshots.length} saved pages (text masked).`);
 };
 

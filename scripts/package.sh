@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")/.."
 VERSION=$(node -p "require('./manifest.json').version")
-OUT="dist/sub-guard-$VERSION.zip"
+OUT="dist/bank-charge-subscription-finder-$VERSION.zip"
 mkdir -p dist
 rm -f "$OUT"
 zip -q -X "$OUT" manifest.json analyze.js background.js content.js details.js extract.js popup.js results.js \
